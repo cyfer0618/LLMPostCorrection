@@ -6,17 +6,22 @@ parser = argparse.ArgumentParser()
 parser.add_argument(
     '--output_name',
     type=str,
-    required=True
+    required=True,
+    help="Specify output file name"
 )
 parser.add_argument(
     "--folder_name",
     type=str,
-    required=True
+    required=True,
+    choices=["WS", "CW", "EN", "EW", "HN", "AllError"],
+    help="Specify the folder. Must be one of: WS, CW, EN, EW, HN, AllError"
 )
 parser.add_argument(
     "--hypothesis", 
     type=str,
-    required=True
+    required=True,
+    choices=['ic', 'w2v'],
+    help="Specify the hypothesis. Must be one of: ic, w2v"
 )
 
 args = parser.parse_args()

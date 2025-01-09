@@ -11,7 +11,7 @@ eval_user = []
 eval_assistant = []
 
 for s in split:
-    data = pd.read_json(f'Dataset/25/{s}.jsonl', lines=True)
+    data = pd.read_json(f'Dataset/15/{s}.jsonl', lines=True)
 
     for row in data['text']:
         if 'INPUT:' not in row:
@@ -44,4 +44,4 @@ custom_dataset = DatasetDict()
 for split in hf_data:
     custom_dataset[split] = Dataset.from_dict(hf_data[split])
 
-custom_dataset.save_to_disk('Dataset/25/hf_format')
+custom_dataset.save_to_disk('Dataset/15/hf_format')
